@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#6c4cff">
+
+    <title>JAHIN'S ALPHABET WORLD</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         LOADING SCREEN
+    ========================================== -->
+
+    <div id="loadingScreen" class="loading-screen">
+
+        <div class="loading-logo">🔤</div>
+
+        <h1>JAHIN'S</h1>
+        <h2>ALPHABET WORLD</h2>
+
+        <div class="loader"></div>
+
+        <p>Loading your magical world...</p>
+
+    </div>
+
+
+    <!-- =========================================
+         APP
+    ========================================== -->
+
+    <div id="app" class="app hidden">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <button
+                class="icon-button"
+                onclick="showScreen('home')">
+                🏠
+            </button>
+
+
+            <div class="brand">
+
+                <div class="brand-small">
+                    JAHIN'S
+                </div>
+
+                <div class="brand-large">
+                    ALPHABET WORLD
+                </div>
+
+            </div>
+
+
+            <div class="top-stats">
+
+                <div class="stat">
+                    ⭐
+                    <span id="starCount">0</span>
+                </div>
+
+                <div class="stat">
+                    🏆
+                    <span id="levelCount">1</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             HOME
+        ========================================== -->
+
+        <section id="home" class="screen active">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <div class="crown">👑</div>
+
+                    <h1>
+                        Welcome to
+                        <span>Alphabet World!</span>
+                    </h1>
+
+                    <p>
+                        Learn letters, play games,
+                        earn stars and become an
+                        Alphabet Champion!
+                    </p>
+
+
+                    <div class="home-buttons">
+
+                        <button
+                            class="primary-button"
+                            onclick="showScreen('world')">
+
+                            🚀 START LEARNING
+
+                        </button>
+
+
+                        <button
+                            class="secondary-button"
+                            onclick="showScreen('games')">
+
+                            🎮 PLAY GAMES
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Animated mascot -->
+
+                <div class="mascot">
+
+                    <div class="cloud cloud1">
+                        ☁️
+                    </div>
+
+                    <div class="character">
+
+                        <div class="character-face">
+                            😊
+                        </div>
+
+                        <div class="character-body">
+                            🧒
+                        </div>
+
+                    </div>
+
+                    <div class="mascot-shadow"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HOME CARDS -->
+
+            <div class="feature-grid">
+
+                <div class="feature-card"
+                     onclick="showScreen('world')">
+
+                    <div>🔤</div>
+
+                    <h3>Alphabet World</h3>
+
+                    <p>Learn A to Z</p>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showScreen('games')">
+
+                    <div>🎮</div>
+
+                    <h3>Mini Games</h3>
+
+                    <p>Fun learning games</p>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showScreen('tracing')">
+
+                    <div>✏️</div>
+
+                    <h3>Letter Tracing</h3>
+
+                    <p>Write your letters</p>
+
+                </div>
+
+
+                <div class="feature-card"
+                     onclick="showScreen('characters')">
+
+                    <div>🧒</div>
+
+                    <h3>Characters</h3>
+
+                    <p>Unlock friends</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             ALPHABET WORLD
+        ========================================== -->
+
+        <section id="world" class="screen">
+
+            <div class="section-title">
+
+                <h2>🌈 Alphabet World</h2>
+
+                <p>
+                    Choose a letter to learn!
+                </p>
+
+            </div>
+
+
+            <div
+                id="alphabetGrid"
+                class="alphabet-grid">
+            </div>
+
+
+            <div
+                id="letterLesson"
+                class="lesson hidden">
+
+                <button
+                    class="close-button"
+                    onclick="closeLesson()">
+
+                    ✕
+
+                </button>
+
+
+                <div
+                    id="lessonLetter"
+                    class="lesson-letter">
+
+                    A
+
+                </div>
+
+
+                <div
+                    id="lessonEmoji"
+                    class="lesson-image">
+
+                    🍎
+
+                </div>
+
+
+                <h2 id="lessonWord">
+                    Apple
+                </h2>
+
+
+                <p id="lessonSentence">
+                    A is for Apple
+                </p>
+
+
+                <button
+                    class="listen-button"
+                    onclick="speakCurrentLetter()">
+
+                    🔊 LISTEN
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             GAMES
+        ========================================== -->
+
+        <section id="games" class="screen">
+
+            <div class="section-title">
+
+                <h2>🎮 Fun Learning Games</h2>
+
+                <p>
+                    Play and earn stars!
+                </p>
+
+            </div>
+
+
+            <div class="game-menu">
+
+                <div
+                    class="game-card"
+                    onclick="startBalloonGame()">
+
+                    <div class="game-icon">
+                        🎈
+                    </div>
+
+                    <h3>Balloon Pop</h3>
+
+                    <p>
+                        Pop the correct letter!
+                    </p>
+
+                    <button>
+                        PLAY
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="game-card"
+                    onclick="startMatchingGame()">
+
+                    <div class="game-icon">
+                        🧩
+                    </div>
+
+                    <h3>Letter Match</h3>
+
+                    <p>
+                        Match letters and words!
+                    </p>
+
+                    <button>
+                        PLAY
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="game-card"
+                    onclick="showScreen('tracing')">
+
+                    <div class="game-icon">
+                        ✏️
+                    </div>
+
+                    <h3>Letter Tracing</h3>
+
+                    <p>
+                        Practice writing letters!
+                    </p>
+
+                    <button>
+                        PLAY
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- GAME AREA -->
+
+            <div
+                id="gameArea"
+                class="game-area hidden">
+
+                <button
+                    class="close-game"
+                    onclick="closeGame()">
+
+                    ✕
+
+                </button>
+
+                <h2 id="gameTitle">
+                    Game
+                </h2>
+
+                <div
+                    id="gameContent">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             TRACING
+        ========================================== -->
+
+        <section id="tracing" class="screen">
+
+            <div class="section-title">
+
+                <h2>✏️ Letter Tracing</h2>
+
+                <p>
+                    Trace the letter with your mouse
+                    or finger.
+                </p>
+
+            </div>
+
+
+            <div class="tracing-box">
+
+                <div
+                    id="traceLetter"
+                    class="trace-letter">
+
+                    A
+
+                </div>
+
+
+                <canvas
+                    id="traceCanvas">
+                </canvas>
+
+
+                <div class="trace-controls">
+
+                    <button
+                        onclick="clearCanvas()">
+
+                        🧹 Clear
+
+                    </button>
+
+
+                    <button
+                        onclick="newTraceLetter()">
+
+                        🔤 New Letter
+
+                    </button>
+
+
+                    <button
+                        onclick="completeTrace()">
+
+                        ⭐ Done
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CHARACTERS
+        ========================================== -->
+
+        <section id="characters" class="screen">
+
+            <div class="section-title">
+
+                <h2>🧒 My Characters</h2>
+
+                <p>
+                    Unlock magical friends!
+                </p>
+
+            </div>
+
+
+            <div
+                id="characterGrid"
+                class="character-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PARENT AREA
+        ========================================== -->
+
+        <section id="parent" class="screen">
+
+            <div class="section-title">
+
+                <h2>🔒 Parent Area</h2>
+
+                <p>
+                    Learning progress
+                </p>
+
+            </div>
+
+
+            <div class="parent-card">
+
+                <div class="parent-stat">
+
+                    <span>⭐ Total Stars</span>
+
+                    <strong id="parentStars">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="parent-stat">
+
+                    <span>🏆 Level</span>
+
+                    <strong id="parentLevel">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="parent-stat">
+
+                    <span>🔤 Letters Learned</span>
+
+                    <strong id="learnedLetters">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="reset-button"
+                    onclick="resetProgress()">
+
+                    🔄 Reset Progress
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             BOTTOM NAVIGATION
+        ========================================== -->
+
+        <nav class="bottom-nav">
+
+            <button onclick="showScreen('home')">
+
+                🏠
+                <span>Home</span>
+
+            </button>
+
+
+            <button onclick="showScreen('world')">
+
+                🔤
+                <span>Learn</span>
+
+            </button>
+
+
+            <button onclick="showScreen('games')">
+
+                🎮
+                <span>Games</span>
+
+            </button>
+
+
+            <button onclick="showScreen('characters')">
+
+                🧒
+                <span>Friends</span>
+
+            </button>
+
+
+            <button onclick="openParentArea()">
+
+                🔒
+                <span>Parents</span>
+
+            </button>
+
+        </nav>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
